@@ -1,0 +1,21 @@
+2016-01-30 Initial commit
+ASM file revision 1.0c 2011-06-18
+
+This is an assembly program for a PIC16F77 that is connected to a HID 125Khz card reader.  The purpose of this project is to read an HID card and compare it to a list in memory, if it matches a card in memory a relay is activated to perform an action such as opening a door.
+
+There are several things that have not been implemented in this, but provides a base for someone who would like a starting point.
+
+One big issue is with RF interference, the project has not been hardened aghinst RF interference and being close to a transmitting antenna, especially around 146Mhz, can cause issues with the microcontroller.
+
+The other not implemented feature is the ability to edit stored cards.
+
+Connecting the microcontroller through RS232, or through a RS232 USB adapter, will allow the ability to add new cards, delete cards, and see what cards are scanned as they are being scanned.  The RS232 settings are 9600 baud, 8 data bits, 1 stop bit, no parity.  Refer to the ASM file for details on where to connect this, it is specified.  I will also need to upload a schematic at a later time to show how things are connected.
+
+At present the following major components are used:
+Microchip PIC16F77 microcontroller
+Microchop 24LC64 64kbit (8kbyte) SPI EEPROM memory chip
+MAX232 RS232 level shifter for RS232 interface
+7417 buffer for input/output for protection of the microcontroller I/O
+4Mhz crystal for the microcontroller
+
+The microcontroller connections are shown in the included asm file, but I intend to upload a full schematic soon.
